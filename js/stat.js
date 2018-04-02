@@ -67,7 +67,7 @@ var getRandomInt = function (min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 };
 
-window.renderStatistics = function(ctx, players, times) {
+window.renderStatistics = function (ctx, players, times) {
   renderCloud(ctx, CLOUD_X + GAP, CLOUD_Y + GAP, 'rgba(0, 0, 0, 0.7)');
   renderCloud(ctx, CLOUD_X, CLOUD_Y, '#fff');
 
