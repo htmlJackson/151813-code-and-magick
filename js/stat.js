@@ -22,7 +22,6 @@ var BAR_WIDTH = 40;
 var BAR_HEIGHT = 150;
 
 var renderCloud = function (ctx, x, y, color) {
-
   // Координаты построения восьмиугольника
   var x2 = x + CLOUD_WIDTH_SIDE;
   var x3 = x2 + cloudAngleX;
