@@ -1,3 +1,5 @@
+'use strict';
+
 document.querySelector('.setup').classList.remove('hidden');
 
 var generateCharacter = function () {
@@ -54,7 +56,7 @@ var generateCharacter = function () {
     var result = name[nameNumber] + ' ' + surname[surnameNumber];
     if (isSurnameFirst) {
       result = surname[nameNumber] + ' ' + name[surnameNumber];
-    };
+    }
 
     return result;
   };
@@ -76,7 +78,7 @@ var generateCharacter = function () {
   var character = {
     name: generateName(charactersData.nameData, charactersData.surnameData),
     coatColor: generateCoatColor(charactersData.coatColorData),
-    eyesColor: generateCoatColor(charactersData.coatColorData)
+    eyesColor: generateEyesColor(charactersData.eyesColorData)
   };
 
   return character;
@@ -88,27 +90,27 @@ var wizardsArray = [];
 for (var i = 1; i <= WIZARDS_COUNT; i++) {
   var wizard = generateCharacter();
   wizardsArray.push(wizard);
-};
+}
 
 var similarListElement = document.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template')
     .content
     .querySelector('.setup-similar-item');
 
-var renderWizard = function (wizard) {
+var renderWizard = function (unit) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
 
-  wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
-  wizardElement.querySelector('.wizard-coat').style.fill = wizard.coatColor;
-  wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
+  wizardElement.querySelector('.setup-similar-label').textContent = unit.name;
+  wizardElement.querySelector('.wizard-coat').style.fill = unit.coatColor;
+  wizardElement.querySelector('.wizard-eyes').style.fill = unit.eyesColor;
   return wizardElement;
 };
 
 var fragment = document.createDocumentFragment();
 
-for (var i = 0; i < wizardsArray.length; i++) {
-  fragment.appendChild(renderWizard(wizardsArray[i]));
-};
+for (var j = 0; j < wizardsArray.length; j++) {
+  fragment.appendChild(renderWizard(wizardsArray[j]));
+}
 
 similarListElement.appendChild(fragment);
 document.querySelector('.setup-similar').classList.remove('hidden');
