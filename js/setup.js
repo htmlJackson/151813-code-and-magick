@@ -53,32 +53,22 @@ var generateCharacter = function () {
     var surnameNumber = getRandomInt(0, surname.length - 1);
     var isSurnameFirst = !!Math.round(Math.random());
 
-    var result = name[nameNumber] + ' ' + surname[surnameNumber];
     if (isSurnameFirst) {
-      result = surname[nameNumber] + ' ' + name[surnameNumber];
+      return surname[nameNumber] + ' ' + name[surnameNumber];
     }
 
-    return result;
+    return name[nameNumber] + ' ' + surname[surnameNumber];
   };
 
-  var generateCoatColor = function (coat) {
-    var coatNumber = getRandomInt(0, coat.length - 1);
-    var result = coat[coatNumber];
-
-    return result;
-  };
-
-  var generateEyesColor = function (eyes) {
-    var eyesNumber = getRandomInt(0, eyes.length - 1);
-    var result = eyes[eyesNumber];
-
-    return result;
+  var generateColor = function (colors) {
+    var number = getRandomInt(0, colors.length - 1);
+    return colors[number];
   };
 
   var character = {
     name: generateName(charactersData.nameData, charactersData.surnameData),
-    coatColor: generateCoatColor(charactersData.coatColorData),
-    eyesColor: generateEyesColor(charactersData.eyesColorData)
+    coatColor: generateColor(charactersData.coatColorData),
+    eyesColor: generateColor(charactersData.eyesColorData)
   };
 
   return character;
