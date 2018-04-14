@@ -52,11 +52,11 @@ var getRandomInt = function (min, max) {
 };
 
 /**
-  * Генерация случайного элемента массива
+  * Получение случайного элемента массива
   * @param {Array} array - массив
   * @return {string} - элемент массива
 */
-var generateRandomArrayElement = function (array) {
+var getRandomArrayElement = function (array) {
   var number = getRandomInt(0, array.length - 1);
   return array[number];
 };
@@ -90,8 +90,8 @@ var generateWizardsArray = function (dataObject, number) {
   for (var i = 0; i < number; i++) {
     var wizard = {
       name: generateName(dataObject.nameData, dataObject.surnameData),
-      coatColor: generateRandomArrayElement(dataObject.coatColorData),
-      eyesColor: generateRandomArrayElement(dataObject.eyesColorData)
+      coatColor: getRandomArrayElement(dataObject.coatColorData),
+      eyesColor: getRandomArrayElement(dataObject.eyesColorData)
     };
     resultArray.push(wizard);
   }
