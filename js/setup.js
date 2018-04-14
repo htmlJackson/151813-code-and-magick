@@ -45,7 +45,7 @@ var WIZARDS_DATA = {
   * Генерация случайного числа в заданном диапазоне
   * @param {number} min - начало диапазона
   * @param {number} max - конеч диапазона
-  * @returns {number} - случайное число
+  * @return {number} - случайное число
 */
 var getRandomInt = function (min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
@@ -54,7 +54,7 @@ var getRandomInt = function (min, max) {
 /**
   * Генерация случайного элемента массива
   * @param {Array} array - массив
-  * @returns {string} - элемент массива
+  * @return {string} - элемент массива
 */
 var generateRandomArrayElement = function (array) {
   var number = getRandomInt(0, array.length - 1);
@@ -65,7 +65,7 @@ var generateRandomArrayElement = function (array) {
   * Генерация имени персонажа
   * @param {Array} nameArray - массив имён
   * @param {Array} surnameArray - массив фамилий
-  * @returns {string} - Итоговые имя и фамилия персонажа
+  * @return {string} - Итоговые имя и фамилия персонажа
 */
 var generateName = function (nameArray, surnameArray) {
   var nameNumber = getRandomInt(0, nameArray.length - 1);
@@ -83,7 +83,7 @@ var generateName = function (nameArray, surnameArray) {
   * Генерация массива волшебников
   * @param {Object} dataObject - объект с массивами данных (имя, цвет плаща, цвет глаз)
   * @param {number} number - количество волшебников
-  * @returns {Array} - массив волшебников
+  * @return {Array} - массив волшебников
 */
 var generateWizardsArray = function (dataObject, number) {
   var resultArray = [];
@@ -101,7 +101,7 @@ var generateWizardsArray = function (dataObject, number) {
 /**
   * Создание фрагмента с волшебниками
   * @param {Array} array - массив с объектами волшебников
-  * @returns {Object} - фрагмент с волшебниками для вставки в разметку
+  * @return {Object} - фрагмент с волшебниками для вставки в разметку
 */
 var renderWizards = function (array) {
   var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
