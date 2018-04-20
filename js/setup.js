@@ -177,8 +177,14 @@ var closePopup = function () {
   * @return {string} - новый цвет
 */
 var changeColor = function (elem, elemStyle, input, dataArray) {
-  var newColor = getRandomArrayElement(WIZARDS_DATA.fireballColorData);
-  elemStyle == 'background' ? elem.style.background = newColor : elem.style.fill = newColor;
+  var newColor = getRandomArrayElement(dataArray);
+
+  if (elemStyle === 'background') {
+    elem.style.background = newColor;
+  } else if (elemStyle === 'fill') {
+    elem.style.fill = newColor;
+  }
+
   input.value = newColor;
   return newColor;
 };
@@ -186,32 +192,32 @@ var changeColor = function (elem, elemStyle, input, dataArray) {
 setupOpen.addEventListener('click', openPopup);
 setupClose.addEventListener('click', closePopup);
 
-document.addEventListener('keydown', function(evt) {
+document.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ESC_KEYCODE && document.activeElement.className !== 'setup-user-name') {
     closePopup();
   }
 });
 
-setupOpen.addEventListener('keydown', function(evt) {
+setupOpen.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     openPopup();
   }
 });
 
-setupClose.addEventListener('keydown', function(evt) {
+setupClose.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     closePopup();
   }
 });
 
-wizardEyes.addEventListener('click', function() {
+wizardEyes.addEventListener('click', function () {
   changeColor(wizardEyes, 'fill', eyesColorInput, WIZARDS_DATA.eyesColorData);
 });
 
-wizardCoat.addEventListener('click', function() {
+wizardCoat.addEventListener('click', function () {
   changeColor(wizardCoat, 'fill', coatColorInput, WIZARDS_DATA.coatColorData);
 });
 
-wizardFireball.addEventListener('click', function() {
+wizardFireball.addEventListener('click', function () {
   changeColor(wizardFireball, 'background', fireballColorInput, WIZARDS_DATA.fireballColorData);
 });
