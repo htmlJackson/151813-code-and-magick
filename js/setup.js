@@ -144,8 +144,6 @@ document.querySelector('.setup-similar').classList.remove('hidden');
 var setup = document.querySelector('.setup');
 var setupOpen = document.querySelector('.setup-open');
 var setupClose = document.querySelector('.setup-close');
-var setupIcon = setupOpen.querySelector('.setup-open-icon');
-var setupUserName = document.querySelector('.setup-user-name');
 
 var wizardEyes = document.querySelector('.setup-wizard .wizard-eyes');
 var eyesColorInput = document.querySelector('.setup-wizard-appearance input[name="eyes-color"]');
